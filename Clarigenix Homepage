@@ -1,0 +1,34 @@
+import React from "react"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button";
+
+const apps = [ { name: "AquaID", desc: "Your one-stop app for everything fish and fishing. Instantly identify fish, check legal limits, and learn more about your catch.", link: "https://your-aquaid-url.netlify.app", live: true }, { name: "PlantID", desc: "Identify any plant instantly and get detailed care tips.", link: "#", live: false }, { name: "HerbID", desc: "Your guide to culinary and medicinal herbs, instantly identified.", link: "#", live: false }, { name: "TreeID", desc: "Identify trees by photo and learn about their species and uses.", link: "#", live: false }, { name: "FlowerID", desc: "Discover the names and meanings of flowers around you.", link: "#", live: false }, { name: "BoneID", desc: "Identify bones and skeletons with science-backed accuracy.", link: "#", live: false }, { name: "SkinID", desc: "Identify skin conditions instantly and get guidance.", link: "#", live: false }, { name: "HealthID", desc: "Your AI health companion for instant medical insights.", link: "#", live: false }, { name: "WoundID", desc: "Instant wound analysis and care suggestions.", link: "#", live: false }, { name: "BugBiteID", desc: "Identify bug bites and stings with expert accuracy.", link: "#", live: false }, { name: "BudID", desc: "Cannabis strain identification where legal.", link: "#", live: false }, { name: "PillID", desc: "Identify any pill or medication instantly.", link: "#", live: false } ];
+
+export default function ClarigenixHome() { return ( <div className="p-6 space-y-6"> <header className="text-center space-y-2"> <h1 className="text-4xl font-bold">Clarigenix</h1> <p className="text-lg text-gray-600">Smart tools for nature & health</p> </header>
+
+<section className="text-center space-y-3">
+    <h2 className="text-2xl font-bold">Explore Our Apps</h2>
+    <p className="text-gray-600">Your one-stop place for identification and insights – from fish to health and beyond.</p>
+  </section>
+
+  <section className="grid md:grid-cols-3 gap-4">
+    {apps.map((app, i) => (
+      <Card key={i} className="p-4 shadow-lg">
+        <CardContent className="space-y-3">
+          <h3 className="text-xl font-bold">{app.name}</h3>
+          <p className="text-gray-600 text-sm">{app.desc}</p>
+          {app.live ? (
+            <Button asChild><a href={app.link}>Open App</a></Button>
+          ) : (
+            <Button disabled>Coming Soon</Button>
+          )}
+        </CardContent>
+      </Card>
+    ))}
+  </section>
+
+  <footer className="text-center text-gray-500 text-sm mt-10">
+    © {new Date().getFullYear()} Clarigenix. All rights reserved.
+  </footer>
+</div>
+
+); }
+
